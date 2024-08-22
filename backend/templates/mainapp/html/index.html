@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="{% static 'mainapp/js/main.js' %}"></script>   
+        <title>My Own Web Page</title>
+    </head>
+
+    <body class="bg-dark">
+
+        <nav class="navbar bg-black border border-secondary-subtle border-5">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">Dmitry Levchenko</a>
+            </div>
+        </nav>
+
+        <!-- General Description -->
+        <div class="container-fluid border border-secondary-subtle border-5 p-5">
+            <div class="col border border-white border-2 p-5">
+                <div class="row p-5">
+                    <h1 class="text-white text-center">General Description</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Projects Grid -->
+        <div class="container-fluid border border-secondary-subtle border-5">
+
+            <!-- Single Project Grid -->
+            <div class="row p-5">
+                <div class="container">
+                    <!-- Project Name -->
+                    <div class="row p-2">
+                        <div class="col">
+                            <h1 class="text-white text-center">Project Name</h1>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col">
+                            <div class = "container">
+                                <!-- Description -->
+                                <div class="row border border-secondary-subtle p-2">
+                                    <div class="col">
+                                        <h1 class="text-white">Description</h1>
+                                    </div>
+                                </div>
+                                <!-- Stack -->
+                                <div class="row border border-secondary-subtle p-2">
+                                    <div class="col">
+                                        <h1 class="text-white">Stack</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Demo -->
+                        <div class="col border border-secondary-subtle p-2 ">
+                            <h1 class="text-white">Demo</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </body>
+
+</html>

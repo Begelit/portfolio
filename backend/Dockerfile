@@ -12,5 +12,6 @@ EXPOSE 8000
 
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
-# docker build -t backendportfolio:latest .
+# /mnt/c/Users/Dima/my_portfolio/portfolio/backend
+# sudo docker build -t backendportfolio:latest .
 # sudo docker run -p 127.0.0.1:8001:8000 backendportfolio:latest
