@@ -18,8 +18,7 @@ class FrameSenderInfocen(AsyncWebsocketConsumer):
             match = re.search(r'(\d+)', filename)
             return int(match.group()) if match else 0
         image_filenames = sorted(image_filenames, key=extract_number)
-        # print(image_filenames)
-        # print(len(image_filenames))
+
         for filename in image_filenames:
             with open(os.path.join(self.path,filename), "rb") as file:
                 self.frames.append(file.read())
@@ -29,20 +28,53 @@ class FrameSenderInfocen(AsyncWebsocketConsumer):
             for frame in self.frames:
                 await self.send(bytes_data=frame)
                 await asyncio.sleep(0.03)
+                
+class FrameSenderUnet(AsyncWebsocketConsumer):
 
-        # self.accept("subprotocol")
+    async def connect(self):
+
+        await self.accept()
         
-        # self.close()
+        self.frames = []
+        self.path = "demo/unet/"
+        image_filenames = os.listdir(self.path)
+        
+        def extract_number(filename):
+            match = re.search(r'(\d+)', filename)
+            return int(match.group()) if match else 0
+        image_filenames = sorted(image_filenames, key=extract_number)
 
-    # def receive(self, text_data=None, bytes_data=None):
+        for filename in image_filenames:
+            with open(os.path.join(self.path,filename), "rb") as file:
+                self.frames.append(file.read())
+        self.count = 0
 
-    #     self.send(text_data="Hello world!")
+        while True:
+            for frame in self.frames:
+                await self.send(bytes_data=frame)
+                await asyncio.sleep(0.03)
+                
+class FrameSenderASR(AsyncWebsocketConsumer):
 
-    #     self.send(bytes_data="Hello world!")
+    async def connect(self):
 
-    #     self.close()
+        await self.accept()
+        
+        self.frames = []
+        self.path = "demo/asr/"
+        image_filenames = os.listdir(self.path)
+        
+        def extract_number(filename):
+            match = re.search(r'(\d+)', filename)
+            return int(match.group()) if match else 0
+        image_filenames = sorted(image_filenames, key=extract_number)
 
-    #     self.close(code=4123)
+        for filename in image_filenames:
+            with open(os.path.join(self.path,filename), "rb") as file:
+                self.frames.append(file.read())
+        self.count = 0
 
-    # def disconnect(self, close_code):
-        # Called when the socket closes
+        while True:
+            for frame in self.frames:
+                await self.send(bytes_data=frame)
+                await asyncio.sleep(0.06)

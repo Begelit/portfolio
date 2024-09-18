@@ -17,7 +17,7 @@ from django.urls import path
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
-from mainapp.consumer import FrameSenderInfocen
+from mainapp.consumer import FrameSenderInfocen,FrameSenderUnet,FrameSenderASR
 
 application = get_asgi_application()
 
@@ -27,7 +27,9 @@ application = ProtocolTypeRouter({
     "websocket": AllowedHostsOriginValidator(
         AuthMiddlewareStack(
             URLRouter([
-                path("framesender/infocen/", FrameSenderInfocen.as_asgi())
+                path("framesender/infocen/", FrameSenderInfocen.as_asgi()),
+                path("framesender/unet/", FrameSenderUnet.as_asgi()),
+                path("framesender/asr/", FrameSenderASR.as_asgi())
                 # path("chat/admin/", AdminChatConsumer.as_asgi()),
                 # path("chat/", PublicChatConsumer.as_asgi()),
             ])
