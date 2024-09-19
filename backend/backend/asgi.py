@@ -17,7 +17,7 @@ from django.urls import path
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
-from mainapp.consumer import FrameSenderInfocen,FrameSenderUnet,FrameSenderASR
+from mainapp.consumer import FrameSenderInfocen,FrameSenderUnet,FrameSenderASR,FrameSenderCV,FrameSenderLLM
 
 application = get_asgi_application()
 
@@ -29,7 +29,11 @@ application = ProtocolTypeRouter({
             URLRouter([
                 path("framesender/infocen/", FrameSenderInfocen.as_asgi()),
                 path("framesender/unet/", FrameSenderUnet.as_asgi()),
-                path("framesender/asr/", FrameSenderASR.as_asgi())
+                path("framesender/asr/", FrameSenderASR.as_asgi()),
+                path("framesender/cv/", FrameSenderCV.as_asgi()),
+                path("framesender/llm/", FrameSenderLLM.as_asgi())
+
+
                 # path("chat/admin/", AdminChatConsumer.as_asgi()),
                 # path("chat/", PublicChatConsumer.as_asgi()),
             ])

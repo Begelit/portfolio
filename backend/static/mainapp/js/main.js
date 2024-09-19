@@ -11,8 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const socketFramesenderASR = new WebSocket('ws://'+host+':8000/framesender/asr/');
     const demoASR = document.getElementById("DemoASR")
 
+    const socketFramesenderCV = new WebSocket('ws://'+host+':8000/framesender/cv/');
+    const demoCV = document.getElementById("DemoCV")
 
-    // let currentFrameInfocen = null;
+    const socketFramesenderLLM = new WebSocket('ws://'+host+':8000/framesender/llm/');
+    const DemoLLM = document.getElementById("DemoLLM")
+
     //Infocen
     socketFramesenderInfocen.onmessage = function(event) {
         const imageUrl = URL.createObjectURL(event.data);
@@ -27,5 +31,15 @@ document.addEventListener("DOMContentLoaded", function() {
     socketFramesenderASR.onmessage = function(event) {
         const imageUrl = URL.createObjectURL(event.data);
         demoASR.src = imageUrl;
+    };
+    //ASR
+    socketFramesenderCV.onmessage = function(event) {
+        const imageUrl = URL.createObjectURL(event.data);
+        demoCV.src = imageUrl;
+    };
+    //LLM
+    socketFramesenderLLM.onmessage = function(event) {
+        const imageUrl = URL.createObjectURL(event.data);
+        DemoLLM.src = imageUrl;
     };
 });
