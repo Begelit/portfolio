@@ -21,15 +21,22 @@ class getFramesClass:
             with open(os.path.join(self.path,filename), "rb") as file:
                 self.frames.append(file.read())
         return self.frames
+    
+infocen_frames = getFramesClass("demo/infocen/").getFrames()
+unet_frames = getFramesClass("demo/unet/").getFrames()
+asr_frames = getFramesClass("demo/asr/").getFrames()
+cv_frames = getFramesClass("demo/cv/").getFrames()
+llm_frames = getFramesClass("demo/llm/").getFrames()
 
     
 class FrameSenderInfocen(AsyncWebsocketConsumer):
 
     async def connect(self):
+        global infocen_frames
 
         await self.accept()
         
-        self.frames = getFramesClass("demo/infocen/").getFrames()
+        self.frames = infocen_frames#getFramesClass("demo/infocen/").getFrames()
 
         self.count = 0
 
@@ -41,10 +48,11 @@ class FrameSenderInfocen(AsyncWebsocketConsumer):
 class FrameSenderUnet(AsyncWebsocketConsumer):
 
     async def connect(self):
+        global unet_frames
 
         await self.accept()
         
-        self.frames = getFramesClass("demo/unet/").getFrames()
+        self.frames = unet_frames#getFramesClass("demo/unet/").getFrames()
 
         self.count = 0
 
@@ -56,10 +64,10 @@ class FrameSenderUnet(AsyncWebsocketConsumer):
 class FrameSenderASR(AsyncWebsocketConsumer):
 
     async def connect(self):
-
+        global asr_frames
         await self.accept()
         
-        self.frames = getFramesClass("demo/asr/").getFrames()
+        self.frames = asr_frames#getFramesClass("demo/asr/").getFrames()
 
         self.count = 0
 
@@ -71,10 +79,11 @@ class FrameSenderASR(AsyncWebsocketConsumer):
 class FrameSenderCV(AsyncWebsocketConsumer):
 
     async def connect(self):
+        global cv_frames
 
         await self.accept()
         
-        self.frames = getFramesClass("demo/cv/").getFrames()
+        self.frames = cv_frames#getFramesClass("demo/cv/").getFrames()
         self.path = "demo/cv/"
 
         self.count = 0
@@ -87,10 +96,11 @@ class FrameSenderCV(AsyncWebsocketConsumer):
 class FrameSenderLLM(AsyncWebsocketConsumer):
 
     async def connect(self):
+        global llm_frames
 
         await self.accept()
         
-        self.frames = getFramesClass("demo/llm/").getFrames()
+        self.frames = llm_frames#getFramesClass("demo/llm/").getFrames()
 
         self.count = 0
 
