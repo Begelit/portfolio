@@ -123,8 +123,11 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/portfolio/backend/static/"
 ]
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = "/var/www/portfolio/backend/static/mainapp/media/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

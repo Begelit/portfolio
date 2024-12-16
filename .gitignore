@@ -1,4 +1,5 @@
 backend/backend/__pycache__/*
 backend/mainapp/__pycache__/*
+venv
 # backend/backend/settings.py
 # backend/db.sqlite3
