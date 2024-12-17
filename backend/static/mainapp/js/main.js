@@ -45,20 +45,21 @@
 //         DemoLLM.src = imageUrl;
 //     };
 // });
-document.addEventListener("DOMContentLoaded", function() {
-    console.log(window.screen.height," - height")
-    console.log(window.screen.width," - width")
-    let window_height = window.screen.height;
-    let window_width = window.screen.width;
-    const videoElem = document.getElementsByClassName("demo-video")
-    let height = videoElem.getAttribute("height")
-    let width = videoElem.getAttribute("width")
-    if (window_width > 1000){
-        videoElem.setAttribute("width",Math.floor(window.screen.width/2.5)) 
-        videoElem.setAttribute("height",Math.floor(window.screen.width/2.5))     
-    }
-    if (window_width < 1000){
-        videoElem.setAttribute("width",Math.floor(window.screen.width/10)) 
-        videoElem.setAttribute("height",Math.floor(window.screen.width/10))     
-    }
-})
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     console.log(window.screen.height," - height")
+//     console.log(window.screen.width," - width")
+//     let window_height = window.innerHeight;
+//     let window_width = window.innerWidth;
+//     const videoElem = document.getElementsByClassName("demo-video")
+//     let height = videoElem.getAttribute("height")
+//     let width = videoElem.getAttribute("width")
+//     if (window_width > 1000){
+//         videoElem.setAttribute("width",Math.floor(window.screen.width/2.5)) 
+//         videoElem.setAttribute("height",Math.floor(window.screen.width/2.5))     
+//     }
+//     if (window_width < 1000){
+//         videoElem.setAttribute("width",Math.floor(window.screen.width/10)) 
+//         videoElem.setAttribute("height",Math.floor(window.screen.width/10))     
+//     }
+// })
