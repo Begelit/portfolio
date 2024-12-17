@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         videoElem.setAttribute("height",Math.floor(window.screen.width/2.5))     
     }
     if (window_width < 1000){
-        videoElem.setAttribute("width",Math.floor(window.screen.width/3)) 
-        videoElem.setAttribute("height",Math.floor(window.screen.width/3))     
+        videoElem.setAttribute("width",Math.floor(window.screen.width/10)) 
+        videoElem.setAttribute("height",Math.floor(window.screen.width/10))     
     }
 })
