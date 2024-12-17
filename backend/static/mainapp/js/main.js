@@ -48,9 +48,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log(window.screen.height," - height")
     console.log(window.screen.width," - width")
+    let window_height = window.screen.height;
+    let window_width = window.screen.width;
     const videoElem = document.getElementsByClassName("demo-video")
-    console.log(videoElem.getAttribute("width"))
-    console.log(videoElem.getAttribute("height"))
-    videoElem.setAttribute("width",Math.floor(window.screen.width/2.5)) 
-    videoElem.setAttribute("height",Math.floor(window.screen.width/2.5)) 
+    let height = videoElem.getAttribute("height")
+    let width = videoElem.getAttribute("width")
+    if (window_width > 1000){
+        videoElem.setAttribute("width",Math.floor(window.screen.width/2.5)) 
+        videoElem.setAttribute("height",Math.floor(window.screen.width/2.5))     
+    }
+    if (window_width < 1000){
+        videoElem.setAttribute("width",Math.floor(window.screen.width/3)) 
+        videoElem.setAttribute("height",Math.floor(window.screen.width/3))     
+    }
 })
