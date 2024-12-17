@@ -45,3 +45,12 @@
 //         DemoLLM.src = imageUrl;
 //     };
 // });
+document.addEventListener("DOMContentLoaded", function() {
+    console.log(window.screen.height," - height")
+    console.log(window.screen.width," - width")
+    const videoElem = document.getElementsByClassName("demo-video")
+    console.log(videoElem.getAttribute("width"))
+    console.log(videoElem.getAttribute("height"))
+    videoElem.setAttribute("width",Math.floor(window.screen.width/2.5)) 
+    videoElem.setAttribute("height",Math.floor(window.screen.width/2.5)) 
+})
